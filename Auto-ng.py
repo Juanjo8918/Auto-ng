@@ -1,7 +1,8 @@
 import os
 import subprocess, signal, time
-import colorama
-from colorama import Fore
+import colored
+from colored import fg
+
 
 print("                                             ")
 print("    ___         __              _   ________ ")
@@ -28,7 +29,8 @@ subprocess.Popen('airmon-ng start'+mm,shell=True,stdout=DEVNULL)
 subprocess.Popen('ifconfig ' + mm + ' up',shell=True)
 
 f = subprocess.run('iwconfig',shell=True)
-print("Interface set to Monitor mode "+ Fore.GREEN +"successfully")
+cg = fg('green')
+print("Interface set to Monitor mode "+ cg +"successfully")
 print("                                             ")
 print("                                             ")
 time.sleep(.5)
@@ -45,3 +47,4 @@ p.send_signal(signal.CTRL_C_EVENT)
 
 
 print(f.returncode)
+
